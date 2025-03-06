@@ -85,8 +85,6 @@ export class CommentPostComponent implements OnInit {
       this.commentService
         .getCommentsByPostId(this.postId)
         .subscribe(comments => {
-          console.log('comments');
-          console.log(comments);
           this.comments = comments.reverse();
         });
     }
