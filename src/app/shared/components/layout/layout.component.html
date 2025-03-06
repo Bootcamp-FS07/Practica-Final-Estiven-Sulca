@@ -1,0 +1,98 @@
+<div class="feed-container" [class.example-is-mobile]="isMobile()">
+  <mat-toolbar class="navbar-container">
+    <div class="navbar-content">
+      @if (isMobile()) {
+        <button
+          mat-icon-button
+          aria-label="Menu navbar button"
+          (click)="snav.toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+      }
+
+      <div class="margin-center container-logo">
+        <img src="assets/logo.svg" alt="Logo Post4U" />
+        <span *ngIf="!isMobile()">Post4U</span>
+      </div>
+      <div class="navbar-actions">
+        <a routerLink="/new-post">
+          <button class="create-button" mat-button>
+            <mat-icon class="material-icons-outlined comment-card-icon"
+              >add</mat-icon
+            ><span>Create</span>
+          </button>
+        </a>
+        <div>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>{{ themeService.selectedTheme()!.icon }}</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            @for (theme of themeService.getThemes(); track theme.name) {
+              <button mat-menu-item (click)="themeService.setTheme(theme.name)">
+                <mat-icon>{{ theme.icon }}</mat-icon>
+                <span>{{ theme.name | titlecase }}</span>
+              </button>
+            }
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-main-container">
+    <mat-sidenav
+      #snav
+      [mode]="isMobile() ? 'over' : 'side'"
+      [fixedInViewport]="isMobile()"
+      fixedTopGap="56"
+      [opened]="!isMobile()"
+      class="sidenav-container"
+    >
+      <mat-nav-list class="custom-sidenav-content">
+        <p>
+          <button (click)="redirectHome()" mat-button class="custom-nav-button">
+            <mat-icon>home</mat-icon>
+            Home
+          </button>
+        </p>
+        <p>
+          <button
+            [routerLink]="['/user', userId]"
+            mat-button
+            class="custom-nav-button"
+          >
+            <mat-icon>person</mat-icon>
+            Profile
+          </button>
+        </p>
+        <p>
+          <button (click)="logout()" mat-button class="custom-nav-button">
+            <mat-icon>logout</mat-icon>
+            Logout
+          </button>
+        </p>
+        <mat-divider style="margin-top: 20px"></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-container">
+      <div class="main-container-content">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- @if (!isMobile()) {
+        <div class="actions-container">
+          <div class="actions-content-container">
+            @if (showActionsContainer) {
+              <div>
+                <p>action 1</p>
+                <p>action 3</p>
+                <p>action 2</p>
+              </div>
+            }
+          </div>
+        </div>
+      } -->
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,16 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+@media screen and (min-width: 1024px) {
+  .pots-container {
+    width: 100%;
+  }
+
+  .post-card {
+    width: 75%;
+    margin-left: auto;
+  }
+}

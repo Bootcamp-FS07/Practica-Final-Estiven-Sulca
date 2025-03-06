@@ -1,0 +1,112 @@
+.container-logo {
+  width: 42px;
+}
+
+.navbar-container {
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-bottom: 0.8px solid var(--mat-sys-secondary);
+  width: 100%;
+}
+.navbar-content {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.button-avatar {
+  border-radius: 32px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--mat-sys-primary-container);
+  box-shadow: none;
+}
+.create-button {
+  font-size: 18px;
+  color: var(--mat-sys-secondary);
+}
+.create-button mat-icon {
+  margin-top: -2px;
+  color: var(--mat-sys-primary);
+}
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+.sidenav-main-container {
+  background-color: var(--mat-sys-surface-container-lowest);
+  flex: 1;
+}
+.sidenav-container {
+  border-right: 0.8px solid var(--mat-sys-secondary);
+  border-radius: 0;
+  background-color: var(--mat-sys-surface-container-lowest);
+}
+
+.main-container {
+  background-color: var(--mat-sys-surface-container-lowest);
+  width: 100%;
+}
+
+.custom-sidenav-content p {
+  margin: 0 16%;
+  padding: 8px 0;
+}
+button.mat-mdc-button.custom-nav-button {
+  display: inline-flex;
+  color: var(--mat-sys-secondary);
+  font-size: 20px;
+  padding: 24px 16px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+p button.mat-mdc-button.custom-nav-button:hover {
+  border-radius: 10px;
+  background-color: var(--mat-sys-primary-container);
+}
+@media screen and (min-width: 1024px) {
+  .container-logo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  .navbar-content {
+    width: 95%;
+    justify-content: space-between;
+  }
+  .container-logo span {
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    color: var(--mat-sys-secondary);
+    letter-spacing: 3.2px;
+    margin-top: 8px;
+    margin-left: 8px;
+  }
+
+  .main-container {
+    display: flex;
+  }
+  .main-container-content {
+    width: 55%;
+  }
+
+}

@@ -1,59 +1,46 @@
 # Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+## Deployment on EC2 AWS Server
 
-## Development server
+To test the app on the EC2 instance, follow these steps:
+
+1. Open the following URL in your browser: [EC2 Instace URL](https://ec2-18-228-195-16.sa-east-1.compute.amazonaws.com/)
+
+
+2. Select Advanced and accept the security warning to continue. This happens because the site is using a self-signed SSL certificate.
+
+3. Close the browser tab. This step was just to confirm that the URL is trusted.
+
+4. After accepting the warning, you can proceed to login or sign up. Access the online version of the app here:
+
+https://post4u.vercel.app/login
+
+
+
+## Project Overview
+
+This project was generated using Angular CLI version 19.0.6.
+
+### Development Server
 
 To start a local development server, run:
 
-```bash
+```typescript
 ng serve
 ```
+Once the server is running, open your browser and navigate to http://localhost:4200/. The application will automatically reload when you modify any source files.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Setting API URL
 
-## Code scaffolding
+Before running the project, make sure to configure the API URL in the environment files located in `src/environments/`.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+For development, update `src/environments/environment.ts`:
 
-```bash
-ng generate component component-name
+```typescript
+export const environment = {
+  production: false,
+  apiURL: 'http://localhost:3000', // Replace with your development API URL
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

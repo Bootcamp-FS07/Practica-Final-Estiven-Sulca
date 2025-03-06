@@ -1,0 +1,80 @@
+.card {
+  padding-bottom: 12px;
+  background-color: var(--mat-sys-surface-container-lowest);
+  border-radius: 0;
+  border-top: none;
+  width: 100%;
+  border-left: none;
+  border-right: none;
+  height: 228px;
+  max-height: 260px;
+  cursor: pointer;
+}
+.header-card-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.user-data-container {
+  display: flex;
+  gap: 8px;
+}
+.header-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mat-sys-secondary);
+  background-size: cover;
+  width: 52px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--mat-sys-on-secondary);
+}
+mat-card-title {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+mat-card-subtitle {
+  font-weight: 200;
+  font-size: 14px;
+}
+
+.card-content-container {
+  margin-bottom: 16px;
+  display: -webkit-box;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-content-container p {
+  font-size: 18px;
+  font-weight: 500;
+}
+.comment-tag-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 32px;
+  font-size: 12px;
+  font-weight: 400;
+  height: 44px;
+  width: 128px;
+  background-color: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-secondary);
+}
+.comment-card-icon {
+  margin-right: 0;
+}
+.no-shadow {
+  box-shadow: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    padding: 0 12px;
+  }
+}

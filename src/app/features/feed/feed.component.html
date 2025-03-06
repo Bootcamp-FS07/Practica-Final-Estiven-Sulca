@@ -1,0 +1,20 @@
+<div class="pots-container">
+  @for (item of displayedPosts; track $index) {
+    <div class="post-card">
+      <app-post-card
+        [postId]="item._id"
+        [avatar]="item.author.username | initials"
+        [title]="item.author.username"
+        [content]="item.text"
+        [subtitle]="item.createdAt | timeAgo"
+        [showBulletOptions]="false"
+        [commentsCount]="item.commentsCount"
+      ></app-post-card>
+    </div>
+  }
+  @if (loading) {
+    <div class="spinner-container">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+  }
+</div>
