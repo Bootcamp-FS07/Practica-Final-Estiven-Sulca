@@ -1,12 +1,8 @@
 import { Routes } from '@angular/router';
 import { SignUpComponent } from './features/sign-up/sign-up.component';
 import { LoginComponent } from './features/login/login.component';
-import { FeedComponent } from './features/feed/feed.component';
 import { authGuard } from './shared/guards/auth.guard';
 import { LayoutComponent } from './shared/components/layout/layout.component';
-import { CreateUpdatePostComponent } from './features/create-update-post/create-post.component';
-import { UserProfileComponent } from './features/user-profile/user-profile.component';
-import { CommentPostComponent } from './features/comment-post/comment-post.component';
 
 export const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
@@ -14,27 +10,40 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [authGuard],
     children: [
-      { path: '', component: FeedComponent, canActivate: [authGuard] },
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/feed/feed.component').then(m => m.FeedComponent),
+      },
       {
         path: 'new-post',
-        component: CreateUpdatePostComponent,
-        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./features/create-update-post/create-post.component').then(
+            m => m.CreateUpdatePostComponent
+          ),
       },
       {
         path: 'edit-post/:postId',
-        component: CreateUpdatePostComponent,
-        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./features/create-update-post/create-post.component').then(
+            m => m.CreateUpdatePostComponent
+          ),
       },
       {
         path: 'user/:userId',
-        component: UserProfileComponent,
-        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./features/user-profile/user-profile.component').then(
+            m => m.UserProfileComponent
+          ),
       },
       {
         path: 'post/:postId',
-        component: CommentPostComponent,
-        canActivate: [authGuard],
+        loadComponent: () =>
+          import('./features/comment-post/comment-post.component').then(
+            m => m.CommentPostComponent
+          ),
       },
     ],
   },
